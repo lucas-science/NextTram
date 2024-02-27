@@ -23,8 +23,6 @@ class Trips extends Component {
     ); 
   }; 
 
-  GetDataFrom
-
   render() { 
     return ( 
       <View style={styles.container}> 
@@ -44,6 +42,5 @@ const styles = StyleSheet.create({
   container: { 
     flex:6,
     width:'100%',
-    backgroundColor:'green',
   }, 
 });

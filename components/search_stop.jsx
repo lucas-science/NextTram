@@ -16,7 +16,7 @@ class Search extends Component {
       error: null, 
       searchValue: "", 
       showview : false,
-      final_stop:null
+      final_stop:null,
     }; 
     this.arrayholder = Object.keys(list_stop); 
   } 
@@ -25,7 +25,7 @@ class Search extends Component {
     return ( 
       <View style={styles.item}> 
         <TouchableOpacity onPress={() => this.pressItem(item)}>
-          <Text>{item}</Text>
+          <Text style={{color:'#F9F8F8'}}>{item}</Text>
         </TouchableOpacity>
       </View> 
     ); 
@@ -77,7 +77,7 @@ class Search extends Component {
           value={this.state.searchValue} 
           onChangeText={(text) => this.searchFunction(text)} 
           autoCorrect={false}
-          
+          containerStyle={{ backgroundColor: '#F9F8F8', borderTopColor: 'transparent', borderBottomColor: 'transparent' }}
         /> 
         {content}
       </View> 
@@ -93,9 +93,10 @@ const styles = StyleSheet.create({
     padding: 2, 
   }, 
   item: { 
-    backgroundColor: "#f5f520", 
+    backgroundColor: '#65756D',
+    borderRadius:10,
     padding: 20, 
     marginVertical: 8, 
     marginHorizontal: 16, 
-  }, 
+  },
 });

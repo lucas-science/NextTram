@@ -5,6 +5,7 @@ import { ListItem, SearchBar } from "react-native-elements";
 
 import StopsSearch from './components/search_stop';
 import NextTram from './pages/NexTram';
+import HomePage from './pages/HomePage'
 
 import list_stop from "./list_stop.json";
 
@@ -23,13 +24,23 @@ class App extends Component {
     this.setState({finalStop: finalStopFromChild, finalStop_Data:stop_data})
   }
   render() { 
-
-    return ( 
-      <>
-        <StopsSearch onStateChange={this.handleChildStateChange} />
-        <NextTram station={this.state.finalStop} data={this.state.finalStop_Data}/>
-      </>
-    ); 
+    if (this.state.finalStop !== null) {
+      return ( 
+        <View style={styles.body}>
+          <StopsSearch onStateChange={this.handleChildStateChange} />
+          <NextTram station={this.state.finalStop} data={this.state.finalStop_Data}/>
+        </View>
+      ); 
+    } else {
+      return (
+        <>
+        <View style={styles.body}>
+          <StopsSearch onStateChange={this.handleChildStateChange} />
+          <HomePage/>
+        </View>
+        </>
+      )
+    }
   } 
 } 
 
@@ -39,6 +50,10 @@ const styles = StyleSheet.create({
   container: { 
     marginTop: 30, 
     padding: 2, 
+  },
+  body:{
+    flex:1,
+    backgroundColor:'#F9F8F8'
   },
 });
 

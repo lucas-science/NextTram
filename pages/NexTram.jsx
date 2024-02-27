@@ -19,7 +19,7 @@ class NextTram extends Component {
       <View style={styles.container}> 
         <View style={styles.station_container}>
           <View style={styles.station_box}>
-            <Text>{this.props.station}</Text>
+            <Text style={{ fontSize: 15, fontWeight: 500}}>{this.props.station}</Text>
           </View>
         </View>
         <Trips station={station} data={data} />
@@ -36,21 +36,18 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent:'space-around',
     alignItems:'center',
-    backgroundColor:'red'
   },
 
   station_container: {
     flex:1,
-    backgroundColor:'blue',
     width:'100%',
     justifyContent:'center',
     alignItems: 'center'
-
   },
   station_box: {
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius:5,
-    backgroundColor:'yellow',
+    backgroundColor:'#A0756F',
   },
 });
