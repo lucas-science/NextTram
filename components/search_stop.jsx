@@ -33,34 +33,32 @@ class Search extends Component {
 
 
   pressItem = (item) => {
-    const {searchValue, final_stop} = this.state
-
     const finalStop = { [item]: list_stop[item] };
+
     this.setState({ final_stop: finalStop }, () => {
       this.setState({searchValue : ""})
     });
+
     this.props.onStateChange(item, list_stop[item]);
   }
 
   searchFunction = (text) => { 
-    const {searchValue, final_stop} = this.state
-
-    if(searchValue != "") {
-      this.setState({final_stop : null, searchValue : text}, () => this.props.onStateChange({text, final_stop}))
-    }
+    this.setState({searchValue : text})
 
     const updatedData = this.arrayholder.filter((item) => { 
       const item_data = `${item.toUpperCase()})`; 
       const text_data = text.toUpperCase(); 
       return item_data.indexOf(text_data) > -1; 
     }); 
-    this.setState({ data: updatedData, searchValue: text });
+
+    this.setState({ data: updatedData });
+
   }; 
   
 
   render() { 
     let content = null;
-    if (this.state.searchValue !== "" && this.state.final_stop == null) {
+    if (this.state.searchValue !== "") {
       content = (
         <FlatList 
           data={this.state.data} 
@@ -79,6 +77,7 @@ class Search extends Component {
           value={this.state.searchValue} 
           onChangeText={(text) => this.searchFunction(text)} 
           autoCorrect={false}
+          
         /> 
         {content}
       </View> 

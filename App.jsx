@@ -21,7 +21,6 @@ class App extends Component {
   handleChildStateChange = (finalStopFromChild, stop_data) => {
     console.log(finalStopFromChild, stop_data)
     this.setState({finalStop: finalStopFromChild, finalStop_Data:stop_data})
-    d
   }
   render() { 
 

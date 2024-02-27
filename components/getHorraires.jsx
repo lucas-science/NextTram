@@ -14,6 +14,11 @@ class getHorraires extends Component {
 
     }; 
   } 
+  componentDidMount(){
+
+  }
+
+  
 
   render() { 
     return ( 
